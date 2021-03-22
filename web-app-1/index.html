@@ -12,6 +12,12 @@
         <script src="lessons.js"></script>
         <!-- manifest file link -->
         <link rel="manifest" href="lessonstore.webmanifest">
+
+        <script>
+            if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.register('service-worker.js');
+                };
+        </script>
     </head>
     <body>
         <div id="app">

@@ -21,7 +21,7 @@
 	</head>
 	<body>
 		<div id="app">
-			<my-component text="World"></my-component>
+			<my-component v-bind:text="message"></my-component>
 			<!-- PRODUCTS PAGE -->
 			<div v-if="shop">
 				<div class="row mt-1">
@@ -146,7 +146,12 @@
 
 			const MyComponent = {
 					props: ['text'],    // declare the props
-  					template: '<div>Hello {{text}}! </div>', // use the props in component
+  					template: '<div>Hello {{text}}! {{tester1}}</div>', // use the props in component
+					data() {
+						return {
+							tester1: 'Testing text'
+						}
+					}
 				}
 			var lessonStore = new Vue({
 					el: "#app",
@@ -154,17 +159,20 @@
 				//how to refer to it     const name
 						'my-component': MyComponent
 					},
-					data: {
-						sitename: "Lessons Store",
-						lessons: lessons,
-						cart: [],
-						order: {
-							fullname: '',
-							phone: ''
-						},
-						shop: true,
-						sort: "subj",
-						ord: "asc"
+					data() {
+						return{
+							sitename: "Lessons Store",
+							message: "from parent component!",
+							lessons: lessons,
+							cart: [],
+							order: {
+								fullname: '',
+								phone: ''
+							},
+							shop: true,
+							sort: "subj",
+							ord: "asc"
+						}
 					},
 					methods: {
 						addToCart: function (lesson) {

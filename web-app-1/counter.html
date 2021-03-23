@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Counter</title>
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- vuejs -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-component :text="message"></my-component>
+        </div>
+        
+        <script>
+            // GLOBAL COMPONENTS
+
+			// Vue.component('my-component', {
+			//     template: '<div>Hello From Global Component</div>'
+			// });
+
+			// LOCAL COMPONENTS
+            const MyComponent = {
+                    props: ['text'],    // declare the props
+                    template: '<div>Hello {{text}}! {{tester1}}</div>', // use the props in component
+                    data() {
+                        return {
+                            tester1: 'Testing text'
+                        }
+                    }
+                }
+                new Vue({
+
+                });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Components</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-component :text="message"></my-component>
+    </div>
+
+    <script>
+        const MyComponent = {
+            props: ['text'],    // declare the props
+            template: '<div>Hello {{text}}! {{tester1}}</div>', // use the props in component
+            data() {
+                return {
+                    tester1: 'Testing text'
+                }
+            }
+        }
+        new Vue({
+            el: "#app",
+            components: {
+                //how to refer to it     const name
+                'my-component': MyComponent
+            },
+            data() {
+                return {
+                    message: "from parent component!"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
